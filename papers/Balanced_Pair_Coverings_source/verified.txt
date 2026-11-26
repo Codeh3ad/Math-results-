@@ -1,0 +1,3 @@
+s Q L t groups overlapping_pairs max_incidence
+3 5 8 1 141 1566 9
+5 13 24 2 1215 45760 15

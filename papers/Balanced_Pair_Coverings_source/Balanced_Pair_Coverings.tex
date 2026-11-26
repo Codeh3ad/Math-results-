@@ -1,0 +1,118 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\F}{\mathbb F}
+\title{Sharp pair coverings below the diagonal in the balanced range}
+\author{Cole Wendling}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+For regular super-simple pair coverings with locally four-cycle-free unique pairs, the upper second-order coefficient $1/2$ is attained whenever $L\to\infty$ and $\limsup L/\sqrt k<1$. This includes every fixed ratio strictly between zero and one in the balanced range. A quadratic-field colouring has a degenerate zero colour of small degree. Its missing pairs can be repaired on affine lines with an interpolation coordinate that is consistent on intersections. A matching of repeated abscissae extends the construction to $L\le2Q$. A mean-square prime interval estimate fits both auxiliary fields to prescribed ranks. We also derive necessary local structure for any asymptotically sharp covering.
+\end{abstract}
+
+\section{Statement}
+Let $N(k,L)$ denote the maximum number of points in an indexed covering of all pairs by nonempty blocks of size at most $L$, with each point in exactly $k$ blocks. The covering is \emph{super-simple} if distinct indexed blocks intersect in at most two points. We require super-simplicity and require the edges covered exactly once in each block to form a $C_4$-free graph. Indexed copies of blocks of size one or two are allowed.
+\begin{theorem}\label{main}
+If $L\to\infty$ and $\limsup L/\sqrt{k}<1$, then
+\[
+ N(k,L)=kL/2+(1/2+o(1))k\sqrt L .
+\]
+\end{theorem}
+The preceding cubic-field construction gave this formula for $L=o(k^{1/3})$ \cite{paper}. Here several abscissae can share an auxiliary field label. The resulting defect has a different shape from the zero-colour defect; both admit two-fiber repairs.
+
+\section{A quadratic field and two layers}
+Take an odd prime $s$, let $F=\F_{s^2}$, and let $\lambda:F\to\F_s$ be a nonzero linear form, with kernel $H$. Choose $L$ distinct $u_x\in F^*$, indexed by $x\in X$, where $L\le s^2-1$. Write $i_x=u_x^{-1}$. The divided difference of $u$ as a function of $i$ is $-u_xu_z$. Colour $xz$ by $\chi(x,z)=-\lambda(u_xu_z)$.
+
+Every nonzero colour graph is $C_4$-free. Indeed the pairing $(v,w)\mapsto\lambda(vw)$ is nondegenerate. If $u_x,u_z$ are independent over $\F_s$, two equations prescribing the colour to a common neighbour determine it uniquely. If $u_z=c u_x$ with $c\ne1$, the two equations in a common nonzero colour are inconsistent. The zero-colour graph can contain four-cycles, but its degree is at most $s-1$: the possible nonzero neighbours are in the kernel of one nonzero form.
+
+Let $Q$ be prime with $L\le2Q$, and take a map $x\mapsto j_x\in\F_Q$ with fibers of size at most two. Call pairs $xz$ with $j_x=j_z$ exceptional; they form a matching. Our $LQs^2$ points are triples $(x,y,w)$, with $y\in\F_Q$, $w\in F$. Use two layers of blocks given by
+\[
+ (y,w)=(a j_x+b,\ a'i_x+b'),\qquad
+ (y,w)=(c j_x+d,\ u_x+c'i_x+d').
+\]
+Unprimed parameters range over $\F_Q$ and primed ones over $F$, subject to $a',c'\notin H$. Each layer is resolved by fixing its two slopes: each point determines a unique intercept pair. Total outer replication is $2Q(s^2-s)$.
+
+Within one layer, different last-coordinate functions agree at most once. If those functions coincide, different first-coordinate functions agree on at most one $j$ and hence at most two $x$. Between layers, equality of the last ordinate, after multiplication by $i_x$, is a polynomial equation of degree at most two with nonzero constant term. Thus block intersections have size at most two even with repeated labels.
+
+For $j_x\ne j_z$ the two candidate blocks are unique before deletion. Their primed slopes satisfy $c'=a'+u_xu_z$. On a surviving outer block all pairs unique there have a prescribed nonzero colour, unless their two labels $j$ coincide. On an exceptional pair, if the first ordinates differ there is no meeting. If they agree, each surviving candidate primed function gives $Q$ meetings, one per unprimed slope. Such a pair cannot be unique. On a nonexceptional zero-colour edge, a pair is missing precisely when
+\[
+ \phi_{xz}(w)=\phi_{xz}(w'),\qquad
+ \phi_{xz}(w)=\lambda\big(w/(i_z-i_x)\big).
+\]
+The level sets are affine lines of size $s$ in $F$ over $\F_s$. We will cover every such missing pair, every pair within a fiber $x$, and \emph{all} pairs between exceptional fibers twice.
+
+\section{Repair on affine lines}
+In this section assume $L\asymp s^2$, $Q\ge L/2$, with $L/s^2$ bounded below by a fixed positive constant. Put $t=\lfloor s^{1/3}\rfloor$ and use a prime $R$ between $\lceil Q/t\rceil$ and $2\lceil Q/t\rceil$ (Bertrand's postulate). Eventually $R>2st$, $R\ge 8s+2$ and $2st\le L$. Fix any injection $\F_Q\to\{0,\ldots,t-1\}\times\F_R$, sending $y$ to $(i,v)$. A subcolumn has fixed $(x,w,i)$, and $v$ varies over its occupied values.
+
+A group uses all $t$ subcolumns over each $w$ of one affine line in a fiber, or of two lines in two fibers. Make the following groups.
+\begin{enumerate}
+\item In each fiber use each affine line, in all $s+1$ directions, as a separate group.
+\item On each nonexceptional zero-colour edge use the two copies of each level line of $\phi_{xz}$ as a group.
+\item On each exceptional edge fix one parallel class of lines in $F$. Use every ordered pair of lines, one on each side, as a group.
+\end{enumerate}
+Each subcolumn belongs to at most $(s+1)+(s-1)+s=3s$ groups. Different $w$ in one fiber are joined by their affine line. For equal $w$ and different subcolumn indices, any line through $w$ suffices. Across fibers the groups cover exactly the specified matched cells or the full exceptional pair of fibers.
+
+Order the $s$ elements of each affine line $C$ once and for all, with positions $m_C(w)=0,\ldots,s-1$. Within each group use the evaluation coordinate
+\[
+ h=t m_C(w)+i
+\]
+on its single or first fiber, and add $st$ on its second fiber. Use a fixed order of fibers to determine first and second. Positions are distinct in each group.
+
+We require two leading coefficients per group, disjoint for groups sharing a subcolumn. To get them, first assign tags. For one-fiber groups use their direction. For zero-colour groups use a proper edge colouring of the underlying graph, which greedily needs at most $2s$ tags. For an exceptional edge number the parallel lines on each side from $0$ to $s-1$ and tag the line pair $(m,n)$ by $m+n\pmod s$. Exceptional edges form a matching. Use separate tag sets for the three categories. Within each tag all groups have disjoint subcolumns. The three categories use at most $(s+1)+2s+s=4s+1$ tags, so $8s+2$ field elements suffice to assign two distinct leading coefficients to each tag.
+
+For each assigned coefficient $g$ use every polynomial $v=gh^2+ah+b$ over $\F_R$, restricted to the occupied points of the group's subcolumns. Discard empty blocks and keep all other indexed restrictions. Interpolation gives a meeting for each $g$ for any two points in different subcolumns in the group. For pairs within a subcolumn add two copies of their two-point block. All repair blocks have size at most $2st$ or two. All their pairs are repeated.
+
+To check intersections, consider two distinct groups with common subcolumns. If their two-fiber supports agree, their line pairs came from the same rule. Distinct zero-colour groups there are disjoint, and two distinct exceptional groups can share only one side, on an identical line. In all other cases the overlap lies in a single fiber. In that fiber, equal lines use the same ordering, so positions differ by a fixed translation. Different lines share at most one $w$, and at that $w$ positions again differ by a fixed translation as $i$ varies. In each case distinct leading coefficients bound the total number of intersections by two. Within one group use the ordinary quadratic root bound. Outer blocks visit each fiber once, so meet a group block at most twice. This also proves that restriction to occupied points causes no difficulty.
+
+The maximum added incidence per point is $6sR+2(R-1)=O(Qs^{2/3})$. In the parameter ranges used below, for all sufficiently large $s$ the total replication is at most $QB(s)$, where
+\[
+ B(s)=2s(s-1)+100s^{2/3}.
+\]
+All unique graphs remain subgraphs of the nonzero colour graphs.
+
+\section{Two-field approximation at prescribed rank}
+A largest-prime-below-target argument in $Q$ alone would need more precision than its known pointwise bound gives at this scale. The choice of $s$ leaves many disjoint intervals on which one can seek $Q$.
+
+Put $A=\sqrt L$ and $Y=k/(2L)$. The hypothesis of Theorem~\ref{main} gives $Y\ge(1+\epsilon)L/2$ eventually for some fixed $\epsilon>0$. Fix a sufficiently small $d>0$ and use all primes $(1+d)A\le s\le(1+2d)A$. For small fixed $d$, the targets $y_s=k/B(s)$ lie in $[0.7Y,Y]$ and exceed $(1+\epsilon')L/2$ for some $\epsilon'>0$. Consecutive targets are separated by at least $cY/A$ for an absolute $c>0$: apply the mean value theorem to $k/B(s)$, using $B(s)\asymp A^2$ and $B'(s)\asymp A$. There are $\gg_d A/\log A$ targets by the prime number theorem.
+
+Choose small fixed $\eta>0$ and put $h=\eta Y/A$. We claim that $[y_s-2h,y_s]$ contains a prime for some candidate $s$. Write $x=Y/2$. The unnumbered theorem on p.~225 of Zaccagnini \cite{zacc} assumes $0\le\varepsilon(x)\le1/6$, $\varepsilon(x)\to0$, and $x^{1/6-\varepsilon(x)}\le h\le x$. Taking $\varepsilon(x)\equiv0$ gives
+\[
+ \int_x^{2x}\left|\pi(u)-\pi(u-h)-\frac{h}{\log u}\right|^2du
+ \ll \frac{xh^2}{(\log x)^2}
+       \left(\frac{\log\log x}{\log x}\right)^2 .
+\]
+Here $A=O(\sqrt Y)$ gives $h\gg_\eta\sqrt Y\ge x^{1/6}$ eventually, and $h/x=2\eta/A\to0$. On every endpoint $u$ for which $(u-h,u]$ contains no prime, the integrand is at least $h^2/(\log Y)^2$. The measure of these endpoints in $[Y/2,Y]$ is therefore $O(Y(\log\log Y/\log Y)^2)=o(Y/\log Y)$. If every target interval were empty, the disjoint intervals $[y_s-h,y_s]$ would all consist of such endpoints. Their combined length is $\gg_{d,\eta}Y/\log A$, contradicting the estimate, since $\log A=O(\log Y)$. This proves the claim.
+
+Choose $Q$ in the successful interval. Then $Q\ge L/2$ eventually, $s^2-1\ge L$, and $QB(s)\le k$. Pad to replication $k$ using singleton blocks. Since
+\[
+ \frac{2s^2}{B(s)}=1+\frac1s+o(1/s),
+ \qquad 0\le1-Q/y_s=O(\eta/A),
+\]
+the normalized gain on $LQs^2$ points has lower limit at least $1/[2(1+2d)]-O(\eta)$, with absolute implied constant for small $d$. Let $\eta$ and then $d$ decrease to zero. The matching upper bound is the common-neighbour count recalled below. This proves Theorem~\ref{main}. Taking $d,\eta$ to zero sufficiently slowly also yields outer parallel classes of uniform $L$-blocks with all repairs and padding together costing $o(k/\sqrt L)$ maximum replication per point.
+
+\section{What equality forces}
+For a block of size $j$ let $e_B$ count its unique pairs and put $a(j)=(1+\sqrt{4j-3})/4$. The common-neighbour count gives $e_B\le ja(j)$. If $v$ is the order, and $\mu_e$ the multiplicity of a point pair, direct counting gives the exact identity
+\begin{align*}
+ vk\big((L-1)/2+a(L)\big)-v(v-1)
+  &=\sum_B j\big((L-j)/2+a(L)-a(j)\big)\\
+  &\quad+\sum_B(ja(j)-e_B)+\sum_{e:\mu_e\ge3}(\mu_e-2).
+\end{align*}
+Indeed $\sum_B(\binom j2+e_B)=v(v-1)+\sum_{\mu_e\ge3}(\mu_e-2)$. Each term on the right of the display is nonnegative. Division by $v$ gives the upper bound of Theorem~\ref{main}.
+
+For any sequence attaining coefficient $1/2$, with $k,L\to\infty$, the left side is $o(vk\sqrt L)$. Choose a block with probability $j/(vk)$. Then $\mathbb E[L-j]=o(\sqrt L)$ and $\mathbb E[a(j)-e_B/j]=o(\sqrt L)$. Consequently $(L-j)/\sqrt L\to0$ in probability, and $e_B/(j^{3/2}/2)\to1$ in probability. Also the total excess multiplicity above two is $o(vk\sqrt L)$. This necessary local structure still supplies no common vertex labelling that makes the unique graphs into a Ramsey decomposition.
+
+\paragraph{The diagonal and resolution.}
+For a fixed surviving last-coordinate function in one layer there are $Q^2$ first-coordinate words on an alphabet of size $Q$. Even allowing arbitrary words, distinct words must agree in at most two positions. At each position the number of agreeing pairs is at least $Q\binom Q2$ by convexity. Hence $LQ\binom Q2\le2\binom{Q^2}2$, or $L\le2(Q+1)$. With $Q\sim k/(2L)$ this excludes a fixed ratio $L/\sqrt k>1$ in this architecture. The theorem leaves the limiting ratio one, true uniform resolution, and the global converse open.
+
+\paragraph{Verification.} Run \texttt{python3 check.py} from the root of the source archive. The script checks the group and position rules at $(s,Q,L,t)=(3,5,8,1)$ and $(5,13,24,2)$, including all level-set matches and all overlapping pairs of groups. The asymptotic proof uses no computed assumption.
+
+\begin{thebibliography}{9}
+\bibitem{paper} C. Wendling, \emph{From four-cycle Ramsey colourings to sharp pair coverings}, manuscript (2026). Included in the source archive as\\
+\path{references/Ramsey_Pair_Coverings.pdf}.
+\bibitem{zacc} A. Zaccagnini, Primes in almost all short intervals, \emph{Acta Arith.} \textbf{84} (1998), 225--244. \href{https://doi.org/10.4064/aa-84-3-225-244}{doi:10.4064/aa-84-3-225-244}.
+\end{thebibliography}
+\end{document}
